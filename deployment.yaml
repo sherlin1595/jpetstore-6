@@ -3,21 +3,20 @@ kind: Deployment
 metadata:
   name: petshop
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: petshop
-  replicas: 1 
-  template: 
+  template:
     metadata:
       labels:
         app: petshop
     spec:
       containers:
-      - name: petshop
-        image: sherlin1595/petshop:latest
-        ports:
-        - containerPort: 8080
-        imagePullPolicy: Always
+        - name: petshop
+          image: sherlin1595/petshop:latest
+          ports:
+            - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
